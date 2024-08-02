@@ -28,7 +28,9 @@ if [ "$busdev" == "20d1:7008" ]; then
     echo "Elgin i9"
     # Verifica se IZ != R82 e configura
     if [ ! "$ecfreceb" == "izrcb_R82" ]; then
+        echo "Configurando IZ para R82..."
         echo -e 'biblioteca=izrcb_R82\n' > "$ecfreceb"
+        echo "Configurando EMUL.INI..."
         {
             # echo "!=R82"
             echo -e 'FW_FLAGS=2'
@@ -38,6 +40,7 @@ if [ "$busdev" == "20d1:7008" ]; then
     fi
     # Configura bibliotecas so_u64+E1
     if [ -d "$lib_u64" ]; then
+        echo "Copiando bibliotecas..."
         tar -zxf "$pacote"
         rsync -ahz --info=progress2 so_u64/ "$lib_u64"/
         chmod -R 777 "$lib_u64"
