@@ -36,7 +36,7 @@ if [ "$busdev" == "20d1:7008" ]; then
             echo -e 'FW_FLAGS=2'
             echo -e 'FW_MODELO_IMPRESSORA=1'
             echo -e 'FW_PORTA_USB'
-        } >> "$emul"
+        } > "$emul"
     fi
     # Configura bibliotecas so_u64+E1
     if [ -d "$lib_u64" ]; then
