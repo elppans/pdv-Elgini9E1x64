@@ -24,7 +24,7 @@ if [ "$busdev" == "20d1:7008" ]; then
             echo -e 'FW_FLAGS=2'
             echo -e 'FW_MODELO_IMPRESSORA=1'
             echo -e 'FW_PORTA_USB'
-        } >>"$emul"
+        } >> "$emul"
     fi
     if [ -d "$lib_u64" ]; then
         sudo tar -zxf "$pacote"
