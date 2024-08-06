@@ -29,14 +29,26 @@ if [ "$busdev" == "20d1:7008" ]; then
     # Verifica se IZ != R82 e configura
     if [ ! "$ecfreceb" == "izrcb_R82" ]; then
         echo "Configurando IZ para R82..."
-        echo -e 'biblioteca=izrcb_R82\n' > "$ecfreceb"
+        echo -e 'biblioteca=izrcb_R82\n' >"$ecfreceb"
         echo "Configurando EMUL.INI..."
-        {
-            # echo "!=R82"
-            echo -e 'FW_FLAGS=2'
-            echo -e 'FW_MODELO_IMPRESSORA=1'
-            echo -e 'FW_PORTA_USB'
-        } > "$emul"
+        # Verifica se o parâmetro FW_INVERTE_GAVETA já existe
+        if grep -q "FW_INVERTE_GAVETA" "$emul"; then
+            # Adiciona as configurações necessárias com o parâmetro FW_INVERTE_GAVETA
+            {
+                echo -e 'FW_FLAGS=2'
+                echo -e 'FW_MODELO_IMPRESSORA=1'
+                echo -e 'FW_PORTA_USB'
+                echo -e 'FW_INVERTE_GAVETA'
+            } >"$emul"
+        else
+            # Adiciona as configurações necessárias
+            {
+                echo -e 'FW_FLAGS=2'
+                echo -e 'FW_MODELO_IMPRESSORA=1'
+                echo -e 'FW_PORTA_USB'
+                echo -e 'FW_INVERTE_GAVETA'
+            } >"$emul"
+        fi
     fi
     # Configura bibliotecas so_u64+E1
     if [ -d "$lib_u64" ]; then
