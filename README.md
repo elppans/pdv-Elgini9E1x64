@@ -12,4 +12,4 @@ cd pdv_elgini9x64
 ```
 ## Imagem dos testes em PDV local  
 
-![set_elgini9x64.sh_Testes.png](set_elgini9x64.sh_Testes.png)
+![set_elgini9x64.sh_Testes.png](set_Elgini9E1x64.png)
