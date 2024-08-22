@@ -35,16 +35,16 @@ if [ "$busdev" == "20d1:7008" ]; then
         if grep -q "^[^#]*FW_INVERTE_GAVETA" "$emul"; then
             # Adiciona as configurações necessárias com o parâmetro FW_INVERTE_GAVETA
             {
-                echo -e 'FW_FLAGS=1'
-                echo -e 'FW_MODELO_IMPRESSORA=1'
+                echo -e 'FW_FLAGS=2'
+                echo -e 'FW_MODELO_IMPRESSORA=0'
                 echo -e 'FW_PORTA_USB'
                 echo -e 'FW_INVERTE_GAVETA'
             } >"$emul"
         else
             # Adiciona as configurações necessárias
             {
-                echo -e 'FW_FLAGS=1'
-                echo -e 'FW_MODELO_IMPRESSORA=1'
+                echo -e 'FW_FLAGS=2'
+                echo -e 'FW_MODELO_IMPRESSORA=0'
                 echo -e 'FW_PORTA_USB'
             } >"$emul"
         fi
@@ -61,4 +61,3 @@ if [ "$busdev" == "20d1:7008" ]; then
         exit 1
     fi
 fi
-
