@@ -10,7 +10,10 @@ fi
 ecfreceb="/Zanthus/Zeus/pdvJava/ECFRECEB.CFG"
 emul="/Zanthus/Zeus/pdvJava/EMUL.INI"
 lib_u64="/Zanthus/Zeus/lib_u64"
-# pacote="so_u64_E1-01.08.00.tar.gz"
+# Pacote completo, E1+so_u64 do ftp
+# lib_drp="https://www.dropbox.com/scl/fi/rmbivfskvutepdzlo8126/so_u64_E1-01.08.00.tar.gz?rlkey=ztpt0x6yvpcmt14ozsfqd1y25&st=cvhizhk0&dl=0"
+# Pacote apenas com biblioteca E1
+pacote="so_u64_E1-01.08.00.tar.gz"
 busdev="$(lsusb | grep '20d1:7008' | awk '{print $6}')"
 
 # Exportar variáveis para o ambiente
@@ -19,6 +22,7 @@ export emul
 export lib_u64
 export pacote
 export busdev
+# export lib_drp
 
 # shellcheck source=/dev/null
 source "$ecfreceb"
