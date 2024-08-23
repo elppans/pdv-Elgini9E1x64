@@ -64,14 +64,14 @@ if [ "$busdev" == "20d1:7008" ]; then
         fi
     fi
     # Configura bibliotecas so_u64+E1
-    # if [ -d "$lib_u64" ]; then
-    #     echo "Copiando bibliotecas..."
-    #     tar -zxf "$pacote"
-    #     rsync -ahz --info=progress2 so_u64/ "$lib_u64"/
-    #     chmod -R 777 "$lib_u64"
-    #     ldconfig
-    # else
-    #     echo -e "Diretório \"$lib_u64\" não existe!"
-    #     exit 1
-    # fi
+    if [ -d "$lib_u64" ]; then
+        echo "Copiando bibliotecas..."
+        tar -zxf "$pacote"
+        rsync -ahz --info=progress2 so_u64/ "$lib_u64"/
+        chmod -R 777 "$lib_u64"
+        ldconfig
+    else
+        echo -e "Diretório \"$lib_u64\" não existe!"
+        exit 1
+    fi
 fi
