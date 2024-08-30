@@ -10,6 +10,7 @@ fi
 ecfreceb="/Zanthus/Zeus/pdvJava/ECFRECEB.CFG"
 emul="/Zanthus/Zeus/pdvJava/EMUL.INI"
 lib_u64="/Zanthus/Zeus/lib_u64"
+lib_E1="$lib_u64/libE1_Impressora.so.01.08.00"
 # Pacote completo, E1+so_u64 do ftp
 # lib_drp="https://www.dropbox.com/scl/fi/rmbivfskvutepdzlo8126/so_u64_E1-01.08.00.tar.gz?rlkey=ztpt0x6yvpcmt14ozsfqd1y25&st=cvhizhk0&dl=0"
 # Pacote apenas com biblioteca E1
@@ -70,11 +71,15 @@ if  lsusb -d "$busdev" ; then
     fi
     # Configura bibliotecas so_u64+E1
     if [ -d "$lib_u64" ]; then
-        echo "Copiando bibliotecas..."
-        tar -zxf "$pacote"
-        rsync -ahz --info=progress2 so_u64/ "$lib_u64"/
-        chmod -R 777 "$lib_u64"
-        ldconfig
+        if [ -f "$lib_E1" ]; then
+            echo "Biblioteca $(basename $lib_E1) está atualizado..."
+        else
+            echo "Copiando bibliotecas..."
+            tar -zxf "$pacote"
+            rsync -ahz --info=progress2 so_u64/ "$lib_u64"/
+            chmod -R 777 "$lib_u64"
+            ldconfig
+        fi
     else
         echo -e "Diretório \"$lib_u64\" não existe!"
         exit 1
