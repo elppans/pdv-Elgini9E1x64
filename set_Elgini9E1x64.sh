@@ -28,10 +28,11 @@ export busdev
 source "$ecfreceb"
 
 # Verifica se IRQ == Elgin i9
-if [ "$busdev" == "20d1:7008" ]; then
-    echo "Elgin i9"
+# if [ "$busdev" == "20d1:7008" ]; then
+if  lsusb -d "$busdev" ; then
+    # echo "Elgin i9"
     # Verifica se IZ != R82 e configura
-    if [ ! "$ecfreceb" == "izrcb_R82" ]; then
+    if [ ! "$biblioteca" == "izrcb_R82" ]; then
         echo "Configurando IZ para R82..."
         echo -e 'biblioteca=izrcb_R82\n' >"$ecfreceb"
         echo "Configurando EMUL.INI..."
