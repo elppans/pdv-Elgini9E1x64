@@ -27,7 +27,7 @@ export busdev
 # shellcheck source=/dev/null
 source "$ecfreceb"
 
-# Verifica se IRQ != i9
+# Verifica se IRQ == Elgin i9
 if [ "$busdev" == "20d1:7008" ]; then
     echo "Elgin i9"
     # Verifica se IZ != R82 e configura
@@ -35,11 +35,11 @@ if [ "$busdev" == "20d1:7008" ]; then
         echo "Configurando IZ para R82..."
         echo -e 'biblioteca=izrcb_R82\n' >"$ecfreceb"
         echo "Configurando EMUL.INI..."
-        # Verifica se o parâmetro FW_INVERTE_GAVETA já existe e não está comentado
+        # Verifica SE o parâmetro FW_INVERTE_GAVETA já "existe" e NÃO está comentado
         if grep -q "^[^#]*FW_INVERTE_GAVETA" "$emul"; then
-            # Adiciona as configurações necessárias com o parâmetro FW_INVERTE_GAVETA
+            # Adiciona as configurações necessárias mantendo FW_INVERTE_GAVETA
             {
-                echo -e 'FW_FLAGS=1'
+                echo -e 'FW_FLAGS=2'
                 echo -e 'FW_MODELO_IMPRESSORA=0'
                 echo -e 'FW_PORTA_USB'
                 echo -e 'FW_INVERTE_GAVETA'
