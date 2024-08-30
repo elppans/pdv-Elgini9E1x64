@@ -14,7 +14,7 @@ lib_u64="/Zanthus/Zeus/lib_u64"
 # lib_drp="https://www.dropbox.com/scl/fi/rmbivfskvutepdzlo8126/so_u64_E1-01.08.00.tar.gz?rlkey=ztpt0x6yvpcmt14ozsfqd1y25&st=cvhizhk0&dl=0"
 # Pacote apenas com biblioteca E1
 pacote="so_u64_E1-01.08.00.tar.gz"
-busdev='20d1:7008
+busdev='20d1:7008'
 
 # Exportar variáveis para o ambiente
 export ecfreceb
