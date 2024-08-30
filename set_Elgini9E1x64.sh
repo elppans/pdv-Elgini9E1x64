@@ -64,6 +64,7 @@ if  lsusb -d "$busdev" ; then
         else
             # Adiciona as configurações necessárias
 			# cmd
+            echo teste
 			sed -i "s/FW_FLAGS=""$FW_FLAGS""/FW_FLAGS=2/" "$emul"
 			sed -i "s/FW_MODELO_IMPRESSORA=""$FW_MODELO_IMPRESSORA""/FW_MODELO_IMPRESSORA=0/" "$emul"
 			# cmd
