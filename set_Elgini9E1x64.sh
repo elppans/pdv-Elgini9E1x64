@@ -56,7 +56,7 @@ if [ "$busdev" == "20d1:7008" ]; then
         if grep -q "^[^#]*FW_INVERTE_GAVETA" "$emul"; then
             # Adiciona as configurações necessárias com o parâmetro FW_INVERTE_GAVETA
 			# cmd
-			sed -i "s/FW_FLAGS=""${FW_FLAGS}""/FW_FLAGS=1/" "$emul"
+			sed -i "s/FW_FLAGS=""${FW_FLAGS}""/FW_FLAGS=2/" "$emul"
 			sed -i "s/FW_MODELO_IMPRESSORA=""${FW_MODELO_IMPRESSORA}""/FW_MODELO_IMPRESSORA=0/" "$emul"
 			# cmd
         else
