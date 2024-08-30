@@ -27,6 +27,7 @@ export busdev
 
 # shellcheck source=/dev/null
 source "$ecfreceb"
+source "$emul" &>>/dev/null
 
 # Verifica se IRQ == Elgin i9
 # if [ "$busdev" == "20d1:7008" ]; then
