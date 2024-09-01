@@ -28,6 +28,7 @@ cd set_Elgini9E1x64
 ```
 
 ## Imagem dos testes em PDV local  
+>Imagem antiga, atualmente a configuração padrão da impressora é com valor **0**.
 
 >(Imagem antiga)  
 ![set_elgini9x64.sh_Testes.png](set_Elgini9E1x64.png)
